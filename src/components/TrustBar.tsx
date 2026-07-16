@@ -1,23 +1,23 @@
 import { motion } from 'framer-motion'
 
-const BRANDS = ['IRONCORE GYMS', 'PULSE STUDIOS', 'FUELHOUSE', 'PEAKFORM', 'RECOVR', 'STRIDE LABS']
+const BRANDS = ['NORDIC GELATO CO', 'TROPIFRESH IMPORTS', 'PULSE JUICE BAR', 'VERDE NATURAL FOODS', 'IRONCORE GYMS', 'AMAZÔNIA TRADE']
 
 export default function TrustBar() {
   return (
-    <section className="relative border-y border-white/5 bg-acai-900/40 py-10">
+    <section className="border-b border-ink/10 bg-paper-dim py-10">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="mx-auto w-[90%] max-w-[1700px]"
+        transition={{ duration: 0.6 }}
+        className="mx-auto w-[90%] max-w-[1400px]"
       >
-        <p className="mb-6 text-center text-xs font-semibold uppercase tracking-widest text-acai-300">
-          Trusted by 500+ gyms, studios & sports nutrition brands
+        <p className="mb-6 text-center text-xs font-semibold uppercase tracking-widest text-ink-soft">
+          Exporting to 120+ distributors, retailers &amp; food service brands worldwide
         </p>
-        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-4 opacity-70">
+        <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-4">
           {BRANDS.map((b) => (
-            <span key={b} className="font-display text-lg font-semibold tracking-wide text-white/70">
+            <span key={b} className="font-display text-lg font-semibold tracking-wide text-ink/40">
               {b}
             </span>
           ))}

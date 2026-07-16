@@ -14,7 +14,7 @@ export default function Kicker({
         dark ? 'text-white/45' : 'text-ink/45'
       }`}
     >
-      <span className={dark ? 'text-lime-300' : 'text-berry-600'}>§ {index}</span>
+      <span className={dark ? 'text-lime-300' : 'text-forest-600'}>§ {index}</span>
       <span className="h-px w-8 bg-current opacity-40" />
       {label}
     </div>

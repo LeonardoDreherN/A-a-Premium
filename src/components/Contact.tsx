@@ -2,18 +2,28 @@ import { useState, type FormEvent } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { HiOutlineMail, HiOutlinePhone, HiOutlineClock, HiCheckCircle } from 'react-icons/hi'
 import Kicker from './Kicker'
-import MagneticButton from './MagneticButton'
-import BerryBurst from './BerryBurst'
 
 const BUSINESS_TYPES = [
+  'Ice Cream Shop',
   'Gym / Fitness Studio',
-  'Juice or Smoothie Bar',
-  'Sports Nutrition Brand',
-  'Distributor / Retailer',
+  'Café / Juice Bar',
+  'Distributor',
+  'Reseller',
+  'Natural Products Company',
+  'Specialty Market',
+  'Health Food Chain',
+  'Importer',
   'Other',
 ]
 
-const VOLUMES = ['Under 200 units/mo', '200–1,000 units/mo', '1,000–5,000 units/mo', '5,000+ units/mo']
+const VOLUMES = ['Under 1 pallet/mo', '1–5 pallets/mo', '1 container/mo', '2+ containers/mo']
+
+const PRODUCTS_OF_INTEREST = [
+  'Pure Açaí Pulp',
+  'Açaí + Guaraná',
+  'Açaí + Banana',
+  'Not sure yet — need guidance',
+]
 
 export default function Contact() {
   const [status, setStatus] = useState<'idle' | 'loading' | 'success'>('idle')
@@ -28,27 +38,27 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="relative py-28">
-      <div className="mx-auto w-[90%] max-w-[1700px]">
+    <section id="contact" className="relative bg-paper py-24">
+      <div className="mx-auto w-[90%] max-w-[1400px]">
         <div className="grid gap-16 lg:grid-cols-5">
           <div className="lg:col-span-2">
-            <Kicker index="06" label="Get In Touch" />
-            <h2 className="mt-6 font-serif text-4xl italic leading-[1.1] text-white sm:text-5xl">
-              Let's get açaí on <span className="not-italic font-display font-bold text-gradient-lime">your menu.</span>
+            <Kicker index="07" label="Get In Touch" tone="light" />
+            <h2 className="mt-6 font-display text-4xl font-bold leading-[1.1] text-ink sm:text-5xl">
+              Let's bring açaí to <span className="text-acai-700">your market.</span>
             </h2>
-            <p className="mt-6 max-w-md text-base leading-relaxed text-acai-300">
-              Tell us about your business and volume — a wholesale specialist replies
-              within one business day with pricing and sample availability.
+            <p className="mt-6 max-w-md text-base leading-relaxed text-ink-soft">
+              Tell us about your business, country, and volume — an export
+              specialist replies within one business day with pricing and samples.
             </p>
 
             <div className="mt-10 space-y-5">
               {[
-                { icon: HiOutlineMail, label: 'wholesale@acaifuel.com' },
-                { icon: HiOutlinePhone, label: '+1 (305) 555-0182' },
+                { icon: HiOutlineMail, label: 'export@nativeforest.com' },
+                { icon: HiOutlinePhone, label: 'WhatsApp +55 91 98765-4321' },
                 { icon: HiOutlineClock, label: 'Replies within 1 business day' },
               ].map(({ icon: Icon, label }) => (
-                <div key={label} className="flex items-center gap-3 text-sm text-acai-300">
-                  <span className="flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-acai-900/60 text-lime-300">
+                <div key={label} className="flex items-center gap-3 text-sm text-ink-soft">
+                  <span className="flex h-9 w-9 items-center justify-center rounded-full border border-ink/10 bg-paper-dim text-acai-700">
                     <Icon />
                   </span>
                   {label}
@@ -58,37 +68,36 @@ export default function Contact() {
           </div>
 
           <motion.div
-            initial={{ opacity: 0, y: 40 }}
+            initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.7, ease: 'easeOut' }}
-            className="relative overflow-hidden rounded-3xl border border-white/10 bg-acai-900/60 p-8 backdrop-blur-sm lg:col-span-3 md:p-10"
+            transition={{ duration: 0.6, ease: 'easeOut' }}
+            className="relative overflow-hidden rounded-xl border border-ink/10 bg-paper-dim p-8 shadow-sm lg:col-span-3 md:p-10"
           >
             <AnimatePresence mode="wait">
               {status === 'success' ? (
                 <motion.div
                   key="success"
-                  initial={{ opacity: 0, scale: 0.9 }}
+                  initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0 }}
                   className="relative flex min-h-[420px] flex-col items-center justify-center text-center"
                 >
-                  <BerryBurst />
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
-                    transition={{ type: 'spring', stiffness: 200, damping: 12, delay: 0.1 }}
-                    className="text-6xl text-lime-300"
+                    transition={{ type: 'spring', stiffness: 200, damping: 14, delay: 0.1 }}
+                    className="text-6xl text-forest-600"
                   >
                     <HiCheckCircle />
                   </motion.div>
-                  <h3 className="mt-6 font-display text-2xl font-bold text-white">Request received</h3>
-                  <p className="mt-3 max-w-sm text-sm text-acai-300">
-                    A wholesale specialist will reach out within one business day with pricing and next steps.
+                  <h3 className="mt-6 font-display text-2xl font-bold text-ink">Request received</h3>
+                  <p className="mt-3 max-w-sm text-sm text-ink-soft">
+                    An export specialist will reach out within one business day with pricing and next steps.
                   </p>
                   <button
                     onClick={() => setStatus('idle')}
-                    className="mt-8 text-sm font-semibold text-white/80 underline decoration-white/20 underline-offset-8 transition hover:text-lime-300 hover:decoration-lime-300"
+                    className="mt-8 text-sm font-semibold text-acai-700 underline decoration-acai-700/30 underline-offset-8 transition hover:decoration-acai-700"
                   >
                     Send another request
                   </button>
@@ -105,33 +114,32 @@ export default function Contact() {
                   <Field label="Full name" name="name" required />
                   <Field label="Work email" name="email" type="email" required />
                   <Field label="Company name" name="company" required />
-                  <Field label="Phone" name="phone" type="tel" />
-
+                  <Field label="WhatsApp" name="whatsapp" type="tel" />
+                  <Field label="Country" name="country" required />
                   <Select label="Business type" name="businessType" options={BUSINESS_TYPES} />
+
+                  <Select label="Product of interest" name="product" options={PRODUCTS_OF_INTEREST} />
                   <Select label="Estimated monthly volume" name="volume" options={VOLUMES} />
 
                   <label className="sm:col-span-2">
-                    <span className="mb-1.5 block text-xs font-medium text-acai-300">Tell us about your needs</span>
+                    <span className="mb-1.5 block text-xs font-medium text-ink-soft">Tell us about your needs</span>
                     <textarea
                       name="message"
                       rows={4}
                       placeholder="Formats you're interested in, target launch date, current supplier, etc."
-                      className="w-full rounded-md border border-white/10 bg-acai-950/60 px-4 py-3 text-sm text-white placeholder:text-acai-300/50 focus:border-lime-400/50 focus:outline-none"
+                      className="w-full rounded-md border border-ink/15 bg-paper px-4 py-3 text-sm text-ink placeholder:text-ink-soft/50 focus:border-acai-700/60 focus:outline-none"
                     />
                   </label>
 
-                  <MagneticButton
+                  <button
                     type="submit"
                     disabled={status === 'loading'}
-                    className="group sm:col-span-2 mt-2 inline-flex items-center justify-center gap-2 rounded-md bg-lime-400 px-7 py-3.5 text-sm font-semibold text-acai-950 shadow-[0_0_30px_rgba(198,255,61,0.35)] transition hover:bg-lime-300 disabled:cursor-wait disabled:opacity-70"
+                    className="sm:col-span-2 mt-2 inline-flex items-center justify-center gap-2 rounded-md bg-acai-700 px-7 py-3.5 text-sm font-semibold text-white transition hover:bg-acai-800 disabled:cursor-wait disabled:opacity-70"
                   >
-                    {status === 'loading' ? 'Sending…' : 'Request Wholesale Pricing'}
-                    {status !== 'loading' && (
-                      <span className="transition-transform group-hover:translate-x-1">→</span>
-                    )}
-                  </MagneticButton>
-                  <p className="sm:col-span-2 text-center text-xs text-acai-300/60">
-                    No spam. We only use this to follow up on your wholesale request.
+                    {status === 'loading' ? 'Sending…' : 'Request a Quote'}
+                  </button>
+                  <p className="sm:col-span-2 text-center text-xs text-ink-soft/70">
+                    No spam. We only use this to follow up on your export request.
                   </p>
                 </motion.form>
               )}
@@ -156,15 +164,15 @@ function Field({
 }) {
   return (
     <label>
-      <span className="mb-1.5 block text-xs font-medium text-acai-300">
+      <span className="mb-1.5 block text-xs font-medium text-ink-soft">
         {label}
-        {required && <span className="text-lime-300"> *</span>}
+        {required && <span className="text-acai-700"> *</span>}
       </span>
       <input
         name={name}
         type={type}
         required={required}
-        className="w-full rounded-md border border-white/10 bg-acai-950/60 px-4 py-3 text-sm text-white placeholder:text-acai-300/50 focus:border-lime-400/50 focus:outline-none"
+        className="w-full rounded-md border border-ink/15 bg-paper px-4 py-3 text-sm text-ink placeholder:text-ink-soft/50 focus:border-acai-700/60 focus:outline-none"
       />
     </label>
   )
@@ -173,11 +181,11 @@ function Field({
 function Select({ label, name, options }: { label: string; name: string; options: string[] }) {
   return (
     <label>
-      <span className="mb-1.5 block text-xs font-medium text-acai-300">{label}</span>
+      <span className="mb-1.5 block text-xs font-medium text-ink-soft">{label}</span>
       <select
         name={name}
         defaultValue=""
-        className="w-full appearance-none rounded-md border border-white/10 bg-acai-950/60 px-4 py-3 text-sm text-white focus:border-lime-400/50 focus:outline-none"
+        className="w-full appearance-none rounded-md border border-ink/15 bg-paper px-4 py-3 text-sm text-ink focus:border-acai-700/60 focus:outline-none"
       >
         <option value="" disabled>
           Select an option

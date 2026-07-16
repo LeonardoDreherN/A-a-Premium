@@ -27,19 +27,18 @@ const COMPARISON = [
 
 export default function Science() {
   return (
-    <section id="science" className="relative bg-paper py-28 text-ink">
-      <div className="mx-auto w-[90%] max-w-[1700px]">
-        <Kicker index="02" label="The Science" tone="light" />
+    <section id="science" className="relative bg-paper py-24 text-ink">
+      <div className="mx-auto w-[90%] max-w-[1400px]">
+        <Kicker index="03" label="The Science" tone="light" />
 
         <motion.h2
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.7, ease: 'easeOut' }}
-          className="mt-6 max-w-3xl font-serif text-4xl italic leading-[1.05] text-ink sm:text-5xl lg:text-6xl"
+          className="mt-6 max-w-3xl font-display text-4xl font-bold leading-[1.05] text-ink sm:text-5xl lg:text-6xl"
         >
-          Built for <span className="not-italic font-display font-bold">recovery</span> —
-          not flavor.
+          Built for <span className="text-forest-600">recovery</span> — not flavor.
         </motion.h2>
 
         <motion.p
@@ -69,7 +68,7 @@ export default function Science() {
                 <div key={c.label}>
                   <div className="mb-2 flex items-baseline justify-between">
                     <span className="text-sm text-paper/70">{c.label}</span>
-                    <span className="font-serif text-2xl italic text-paper">{c.value}</span>
+                    <span className="font-display text-2xl font-bold text-paper">{c.value}</span>
                   </div>
                   <div className="h-1.5 w-full bg-paper/10">
                     <motion.div
@@ -100,7 +99,7 @@ export default function Science() {
                 i === 2 ? 'md:col-span-6' : ''
               }`}
             >
-              <span className="font-serif text-sm italic text-ink/35 group-hover:text-paper/50">
+              <span className="font-display text-sm font-semibold text-ink/35 group-hover:text-paper/50">
                 {b.n}
               </span>
               <h3 className="mt-3 font-display text-lg font-semibold text-ink group-hover:text-paper">

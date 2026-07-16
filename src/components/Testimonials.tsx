@@ -3,31 +3,31 @@ import Kicker from './Kicker'
 
 const FEATURED = {
   quote:
-    'We swapped our post-class recovery shake for their bowl kits. Members noticed the difference in a week — and prep time dropped to under two minutes.',
-  name: 'Marisol Vega',
-  role: 'Owner, Pulse Studios — 14 locations',
+    'Working with NativeForest felt different from day one — consistent quality, real export documentation, and shipments that actually arrive on the date they promise. That’s rare from an overseas supplier.',
+  name: 'Lars Eriksson',
+  role: 'Import Director, Nordic Gelato Co — Sweden',
 }
 
 const SUPPORTING = [
   {
     quote:
-      'The private label program let us launch a branded recovery line in six weeks without building a supply chain from scratch.',
-    name: 'Daniel Osei',
-    role: 'Founder, Recovr Nutrition',
+      'Their aseptic packs cut our prep waste in half, and the açaí + banana blend is now our best-selling flavor.',
+    name: 'Camila Duarte',
+    role: 'Founder, Verde Natural Foods — Portugal',
   },
   {
     quote:
-      'Frozen packs arrive on schedule, every time. Our smoothie bar hasn’t run out of açaí once since we switched suppliers.',
+      'Frozen bags arrive on schedule, every time. Our juice bar hasn’t run out of açaí once since we switched suppliers.',
     name: 'Jordan Pace',
-    role: 'Ops Manager, Ironcore Gyms',
+    role: 'Ops Manager, Pulse Juice Bar — USA',
   },
 ]
 
 export default function Testimonials() {
   return (
-    <section id="reviews" className="relative bg-paper py-28 text-ink">
-      <div className="mx-auto w-[90%] max-w-[1700px]">
-        <Kicker index="05" label="Reviews" tone="light" />
+    <section id="reviews" className="relative bg-paper py-24 text-ink">
+      <div className="mx-auto w-[90%] max-w-[1400px]">
+        <Kicker index="06" label="Reviews" tone="light" />
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -36,10 +36,10 @@ export default function Testimonials() {
           transition={{ duration: 0.7, ease: 'easeOut' }}
           className="relative mt-10"
         >
-          <span className="pointer-events-none absolute -left-4 -top-16 select-none font-serif text-[10rem] italic leading-none text-ink/[0.06] sm:text-[14rem]">
+          <span className="pointer-events-none absolute -left-4 -top-16 select-none font-display text-[10rem] font-bold leading-none text-ink/[0.06] sm:text-[14rem]">
             “
           </span>
-          <blockquote className="relative max-w-3xl font-serif text-3xl italic leading-[1.2] text-ink sm:text-4xl lg:text-5xl">
+          <blockquote className="relative max-w-3xl font-display text-3xl font-semibold leading-[1.2] text-ink sm:text-4xl lg:text-5xl">
             {FEATURED.quote}
           </blockquote>
           <figcaption className="mt-8 flex items-center gap-3">
@@ -59,7 +59,7 @@ export default function Testimonials() {
               transition={{ delay: i * 0.12, duration: 0.6, ease: 'easeOut' }}
               className="border-l-2 border-ink/15 pl-6"
             >
-              <p className="max-w-md font-serif text-lg italic leading-snug text-ink/80">“{q.quote}”</p>
+              <p className="max-w-md font-display text-lg font-medium leading-snug text-ink/80">“{q.quote}”</p>
               <p className="mt-4 text-xs font-semibold uppercase tracking-widest text-ink/40">
                 {q.name} · {q.role}
               </p>

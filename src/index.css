@@ -3,35 +3,30 @@
 @theme {
   --font-display: "Space Grotesk", ui-sans-serif, sans-serif;
   --font-sans: "Inter", ui-sans-serif, sans-serif;
-  --font-serif: "Fraunces", ui-serif, serif;
 
-  --color-paper: #f3ede1;
-  --color-paper-dim: #e7dfcd;
-  --color-ink: #17130f;
+  --color-paper: #ffffff;
+  --color-paper-dim: #f6f4ef;
+  --color-ink: #1c1626;
+  --color-ink-soft: #5b5566;
 
-  --color-acai-950: #0f0a1f;
-  --color-acai-900: #170e2c;
-  --color-acai-800: #221540;
-  --color-acai-700: #2f1c58;
-  --color-acai-600: #432a7a;
-  --color-acai-500: #5e3aa8;
-  --color-acai-400: #7c52c9;
-  --color-acai-300: #a683de;
+  --color-acai-950: #241b3d;
+  --color-acai-900: #2f2350;
+  --color-acai-800: #3c2c68;
+  --color-acai-700: #4a3680;
+  --color-acai-600: #5c4299;
+  --color-acai-500: #7654b8;
+  --color-acai-400: #9575cc;
+  --color-acai-300: #b79fdd;
 
   --color-lime-400: #c6ff3d;
   --color-lime-300: #dcff85;
 
+  --color-forest-600: #2f6b45;
+  --color-forest-500: #3d8a58;
+  --color-forest-400: #5aa873;
+
   --color-berry-600: #8b1e6d;
   --color-berry-400: #d94fa0;
-
-  --animate-float-slow: float 7s ease-in-out infinite;
-  --animate-float-slower: float 11s ease-in-out infinite;
-  --animate-spin-slow: spin 14s linear infinite;
-
-  @keyframes float {
-    0%, 100% { transform: translateY(0px) rotate(0deg); }
-    50% { transform: translateY(-18px) rotate(4deg); }
-  }
 }
 
 html {
@@ -40,31 +35,25 @@ html {
 
 body {
   margin: 0;
-  background: var(--color-acai-950);
-  color: #f3efff;
+  background: var(--color-paper);
+  color: var(--color-ink);
   font-family: var(--font-sans);
   overflow-x: hidden;
 }
 
 ::selection {
-  background: var(--color-lime-400);
+  background: var(--color-acai-300);
   color: var(--color-acai-950);
-}
-
-@media (pointer: fine) {
-  body, a, button {
-    cursor: none;
-  }
 }
 
 ::-webkit-scrollbar {
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--color-acai-950);
+  background: var(--color-paper-dim);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--color-acai-600);
+  background: var(--color-acai-400);
   border-radius: 999px;
 }
 
@@ -77,18 +66,4 @@ body {
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-}
-
-.bg-grain::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0.05;
-  mix-blend-mode: overlay;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-}
-
-.clip-blob {
-  clip-path: path("M 60,0 C 90,0 100,30 100,55 C 100,85 75,100 50,100 C 25,100 0,80 0,50 C 0,20 30,0 60,0 Z");
 }

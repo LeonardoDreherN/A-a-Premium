@@ -1,31 +1,25 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { HiMenu, HiX } from 'react-icons/hi'
-import MagneticButton from './MagneticButton'
 
 const LINKS = [
-  { href: '#science', label: 'Why Açaí' },
-  { href: '#products', label: 'Wholesale' },
-  { href: '#process', label: 'Process' },
-  { href: '#reviews', label: 'Reviews' },
+  { href: '#about', label: 'About' },
+  { href: '#products', label: 'Products' },
+  { href: '#b2b', label: 'B2B' },
+  { href: '#contact', label: 'Contact' },
 ]
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
 
   return (
-    <motion.header
-      initial={{ y: -80, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.7, ease: 'easeOut' }}
-      className="fixed top-0 z-50 w-full border-b border-white/5 bg-acai-950/70 backdrop-blur-lg"
-    >
-      <nav className="mx-auto flex w-[90%] max-w-[1700px] items-center justify-between py-4">
-        <a href="#top" className="flex items-center gap-2 font-display text-lg font-semibold tracking-tight text-white">
-          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-gradient-to-br from-acai-400 to-acai-700 text-lime-300 shadow-[0_0_18px_rgba(198,255,61,0.35)]">
+    <header className="sticky top-0 z-50 w-full border-b border-ink/10 bg-paper/90 backdrop-blur-sm">
+      <nav className="mx-auto flex w-[90%] max-w-[1400px] items-center justify-between py-4">
+        <a href="#top" className="flex items-center gap-2 font-display text-lg font-semibold tracking-tight text-ink">
+          <span className="flex h-9 w-9 items-center justify-center rounded-full bg-acai-700 text-lime-300">
             🫐
           </span>
-          AÇAÍ&nbsp;<span className="text-gradient-lime">FUEL</span>
+          NATIVE&nbsp;<span className="text-acai-700">FOREST</span>
         </a>
 
         <div className="hidden items-center gap-8 md:flex">
@@ -33,7 +27,7 @@ export default function Navbar() {
             <a
               key={l.href}
               href={l.href}
-              className="text-sm font-medium text-acai-300/90 transition hover:text-lime-300"
+              className="text-sm font-medium text-ink-soft transition hover:text-acai-700"
             >
               {l.label}
             </a>
@@ -41,18 +35,17 @@ export default function Navbar() {
         </div>
 
         <div className="hidden md:block">
-          <MagneticButton
+          <a
             href="#contact"
-            className="group inline-flex items-center gap-2 rounded-md bg-lime-400 px-5 py-2.5 text-sm font-semibold text-acai-950 shadow-[0_0_20px_rgba(198,255,61,0.4)] transition hover:bg-lime-300"
+            className="rounded-md bg-acai-700 px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-acai-800"
           >
-            Get Wholesale Pricing
-            <span className="transition-transform group-hover:translate-x-1">→</span>
-          </MagneticButton>
+            Request a Quote
+          </a>
         </div>
 
         <button
           aria-label="Toggle menu"
-          className="text-2xl text-white md:hidden"
+          className="text-2xl text-ink md:hidden"
           onClick={() => setOpen((o) => !o)}
         >
           {open ? <HiX /> : <HiMenu />}
@@ -64,14 +57,14 @@ export default function Navbar() {
           initial={{ height: 0, opacity: 0 }}
           animate={{ height: 'auto', opacity: 1 }}
           exit={{ height: 0, opacity: 0 }}
-          className="flex flex-col gap-1 border-t border-white/5 bg-acai-950/95 px-6 pb-6 pt-2 md:hidden"
+          className="flex flex-col gap-1 border-t border-ink/10 bg-paper px-6 pb-6 pt-2 md:hidden"
         >
           {LINKS.map((l) => (
             <a
               key={l.href}
               href={l.href}
               onClick={() => setOpen(false)}
-              className="py-3 text-sm font-medium text-acai-300"
+              className="py-3 text-sm font-medium text-ink-soft"
             >
               {l.label}
             </a>
@@ -79,12 +72,12 @@ export default function Navbar() {
           <a
             href="#contact"
             onClick={() => setOpen(false)}
-            className="mt-2 rounded-md bg-lime-400 px-5 py-3 text-center text-sm font-semibold text-acai-950"
+            className="mt-2 rounded-md bg-acai-700 px-5 py-3 text-center text-sm font-semibold text-white"
           >
-            Get Wholesale Pricing
+            Request a Quote
           </a>
         </motion.div>
       )}
-    </motion.header>
+    </header>
   )
 }
